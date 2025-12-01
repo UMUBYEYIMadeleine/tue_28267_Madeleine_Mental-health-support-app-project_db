@@ -199,5 +199,27 @@ Handles system troubleshooting
 .Resource effectiveness and content engagement
 
 .Crisis intervention frequency and outcomes
-
+phase-iii/
+├── er-diagram/
+│   ├── mental-health-er-diagram.drawio
+│   ├── mental-health-er-diagram.png
+│   └── er-relationships.md
+├── data-dictionary/
+│   ├── complete-dictionary.xlsx
+│   ├── table-definitions.sql
+│   └── constraints-documentation.md
+├── normalization/
+│   ├── normalization-report.docx
+│   ├── 1nf-2nf-3nf-examples.sql
+│   └── normalization-justification.md
+├── bi-considerations/
+│   ├── fact-dimension-analysis.md
+│   ├── kpi-definitions.docx
+│   ├── audit-trail-design.sql
+│   └── analytics-queries.sql
+└── assumptions/
+    ├── technical-assumptions.md
+    ├── business-assumptions.md
+    ├── rwanda-context-assumptions.md
+    └── security-assumptions.md
 
