@@ -197,29 +197,175 @@ Handles system troubleshooting
 .Regional mental health need identification
 
 .Resource effectiveness and content engagement
+### PHASE III: LOGICAL MODEL DESIGN
+Mental Health Support App - Rwanda Context
 
-.Crisis intervention frequency and outcomes
-phase-iii/
-├── er-diagram/
-│   ├── mental-health-er-diagram.drawio
-│   ├── mental-health-er-diagram.png
-│   └── er-relationships.md
-├── data-dictionary/
-│   ├── complete-dictionary.xlsx
-│   ├── table-definitions.sql
-│   └── constraints-documentation.md
-├── normalization/
-│   ├── normalization-report.docx
-│   ├── 1nf-2nf-3nf-examples.sql
-│   └── normalization-justification.md
-├── bi-considerations/
-│   ├── fact-dimension-analysis.md
-│   ├── kpi-definitions.docx
-│   ├── audit-trail-design.sql
-│   └── analytics-queries.sql
-└── assumptions/
-    ├── technical-assumptions.md
-    ├── business-assumptions.md
-    ├── rwanda-context-assumptions.md
-    └── security-assumptions.md
+ ## ENTITY-RELATIONSHIP MODEL:
+ 
+## Core Entities with Attributes:
+1.user
+
+(user_id (PK) - NUMBER(10),
+
+full_name  VARCHAR2(100), NOT NULL
+
+email  VARCHAR2(100), UNIQUE NOT NULL
+
+password_hash  VARCHAR2(255), NOT NULL
+
+phone_number VARCHAR2(20),
+
+date_of_birth DATE,
+
+gender - VARCHAR2(20),
+
+status - VARCHAR2(20),
+
+language_preference - VARCHAR2(20));
+
+2.SELF_ASSESSMENTS 
+
+(assessment_id (PK) NUMBER(10),
+
+user_id (FK) NUMBER(10) REFERENCES users(user_id),
+
+assessment_date  date,
+
+assessment_type  VARCHAR2(50),
+
+score - NUMBER(5,2));
+
+3.EXERCISES
+(exercise_id (PK) NUMBER(10),
+
+title VARCHAR2(100), NOT NULL
+
+description  VARCHAR2(500),
+
+duration_minutes - NUMBER(3), NOT NULL
+
+category - VARCHAR2(50));
+
+ 4.USER_EXERCISE_PROGRESS
+ 
+( progress_id (PK) NUMBER(10),
+
+user_id (FK) NUMBER(10) REFERENCES users(user_id),
+
+exercise_id (FK) NUMBER(10) REFERENCES exercises(exercise_id),
+
+start_time  TIMESTAMP,
+
+completion_time TIMESTAMP,
+
+duration_seconds NUMBER(6));
+
+5.COUNSELORS 
+
+(counselor_id (PK)  NUMBER(10),
+
+counselor_name VARCHAR2(100), NOT NULL
+
+contact_number VARCHAR2(20),NOT NULL
+
+email VARCHAR2(100), UNIQUE NOT NULL
+
+specialization  VARCHAR2(200),
+
+qualifications VARCHAR2(500),
+
+working_hours - VARCHAR2(100));
+
+6. MESSAGES
+ 
+   message_id (PK)  NUMBER(10),
+   
+user_id (FK) NUMBER(10) REFERENCES users(user_id),
+
+counselor_id (FK)  NUMBER(10) REFERENCES counselors(counselor_id),
+
+message_text  varchar(20),
+
+message_type  VARCHAR2(20),
+
+session_id  NUMBER(10);
+
+7.RESOURCES
+
+resource_id (PK)  NUMBER(10),
+
+title - VARCHAR2(200),
+
+description - VARCHAR2(1000),
+
+content_type - VARCHAR2(30), 
+
+category - VARCHAR2(50),
+
+language - VARCHAR2(20),
+
+publication_date - DATE,
+
+author - VARCHAR2(100),
+
+publisher - VARCHAR2(100));
+
+8. APPOINTMENTS
+
+appointment_id (PK)  NUMBER(10),
+
+user_id (FK) - NUMBER(10) REFERENCES users(user_id),
+
+counselor_id (FK) - NUMBER(10) REFERENCES counselors(counselor_id),
+
+appointment_date - DATE,
+
+appointment_type - VARCHAR2(20)); 
+
+9. CRISIS_EVENTS
+    
+    crisis_id (PK) NUMBER(10),
+   
+user_id (FK) - NUMBER(10) REFERENCES users(user_id),
+
+crisis_type - VARCHAR2(50), 
+
+counselor_id (FK) - NUMBER(10) REFERENCES counselors(counselor_id));
+
+10.EMERGENCY_CONTACTS
+
+contact_id (PK) NUMBER(10),
+
+user_id (FK) NUMBER(10) REFERENCES users(user_id),
+
+contact_name  VARCHAR2(100),
+
+contact_number  VARCHAR2(20), 
+
+contact_email - VARCHAR2(100));
+
+Cardinalities:
+
+USERS (1) ---- (M) SELF_ASSESSMENTS
+
+USERS (1) ---- (M) USER_EXERCISE_PROGRESS
+
+USERS (1) ---- (M) MESSAGES
+
+USERS (1) ---- (M) APPOINTMENTS
+
+USERS (1) ---- (M) CRISIS_EVENTS
+
+USERS (1) ---- (M) EMERGENCY_CONTACTS
+
+COUNSELORS (1) ---- (M) MESSAGES
+
+COUNSELORS (1) ---- (M) APPOINTMENTS
+
+EXERCISES (1) ---- (M) USER_EXERCISE_PROGRESS
+
+Each message belongs to one user and one counselor
+
+Each appointment involves one user and one counselor
+
 
