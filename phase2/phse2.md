@@ -1,69 +1,69 @@
-PHASE 2:Business process modeling
-SCOPE DEFINITION
+### PHASE II:Business process modeling
+## SCOPE DEFINITION
 This business process model outlines the complete operational workflow of the Mental Health Support App, covering user registration, self-assessment, resource access, counselor interaction, and administrative oversight. The scope ensures comprehensive coverage of all digital mental health service delivery aspects.
 
-KEY ENTITIES & RESPONSIBILITIES
-User/Patient:
+## KEY ENTITIES & RESPONSIBILITIES
+## User:
 
-Downloads and installs mobile application
+.Downloads and installs mobile application
 
-Completes registration with personal details
+.Completes registration with personal details
 
-Engages with self-assessment tools
+.Engages with self-assessment tools
 
-Accesses educational resources and exercises
+.Accesses educational resources and exercises
 
-Initiates and maintains chat sessions
+.Initiates and maintains chat sessions
 
-Uses emergency support features
+.Uses emergency support features
 
-Manages personal profile and settings
+.Manages personal profile and settings
 
-App System:
+## App System:
 
-Handles user authentication and security
+.Handles user authentication and security
 
-Processes and stores assessment data
+.Processes and stores assessment data
 
-Delivers multimedia educational content
+.Delivers multimedia educational content
 
-Tracks user progress and engagement
+.Tracks user progress and engagement
 
-Routes messages between users and counselors
+.Routes messages between users and counselors
 
-Provides emergency contact information
+.Provides emergency contact information
 
-Maintains data privacy and integrity
+.Maintains data privacy and integrity
 
-Counselor:
+## Counselor:
 
-Manages professional dashboard access
+.Manages professional dashboard access
 
-Responds to user messages promptly
+.Responds to user messages promptly
 
-Provides evidence-based mental health guidance
+.Provides evidence-based mental health guidance
 
-Maintains professional boundaries and ethics
+.Maintains professional boundaries and ethics
 
-Documents session interactions
+.Documents session interactions
 
-Manages workload and availability
+.Manages workload and availability
 
-Admin:
+## Admin:
 
-Monitors overall system performance
+.Monitors overall system performance
 
-Generates analytical reports and insights
+.Generates analytical reports and insights
 
-Manages counselor accounts and assignments
+.Manages counselor accounts and assignments
 
-Updates educational content and resources
+.Updates educational content and resources
 
-Ensures regulatory compliance
+.Ensures regulatory compliance
 
-Handles system troubleshooting
+.Handles system troubleshooting
 
-MIS RELEVANCE
+## MIS RELEVANCE
 .Service Management: Real-time tracking of counseling sessions
 
 .Resource Optimization: Efficient allocation of counselor time
@@ -74,7 +74,7 @@ MIS RELEVANCE
 
 .Quality Assurance: Continuous service improvement monitoring
 
-LOGICAL FLOW CHARACTERISTICS
+## LOGICAL FLOW CHARACTERISTICS
 .Start Points: User registration, Counselor login, Admin access
 
 .Parallel Pathways: Multiple support options available simultaneously
@@ -85,7 +85,7 @@ LOGICAL FLOW CHARACTERISTICS
 
 .End Points: Session completion, Logout, Report generation
 
-ORGANIZATIONAL IMPACT
+## ORGANIZATIONAL IMPACT
 .Increases mental health service accessibility nationwide
 
 .Reduces stigma through anonymous digital platform
@@ -96,7 +96,7 @@ ORGANIZATIONAL IMPACT
 
 .Enhances community health worker effectiveness
 
-ANALYTICS OPPORTUNITIES
+## ANALYTICS OPPORTUNITIES
 .User engagement patterns and feature popularity
 
 .Assessment score trends and improvement metrics
