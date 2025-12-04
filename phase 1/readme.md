@@ -1,6 +1,6 @@
-PHASE I:PROBLEM STATEMENT AND PRESENTATION
-Problem definition
-Problem statement
+### PHASE I:PROBLEM STATEMENT AND PRESENTATION
+## Problem definition
+## Problem statement
 
 • High mental health burden in Rwanda
 
@@ -10,7 +10,8 @@ Problem statement
 
 • No immediate support available 24/7
 
-CONTEXT • Mobile-based digital platform available 24/7
+## CONTEX
+• Mobile-based digital platform available 24/7
 
 • Available nationwide across Rwanda
 
@@ -18,7 +19,7 @@ CONTEXT • Mobile-based digital platform available 24/7
 
 • Supports Kinyarwanda language content
 
-TARGET USERS
+## TARGET USERS
 
 • Individuals with stress/anxiety/depression
 
@@ -28,7 +29,7 @@ TARGET USERS
 
 • Youth and young adults
 
-PROJECT GOALS
+## PROJECT GOALS
 
 • Provide immediate anonymous support
 
@@ -40,7 +41,7 @@ PROJECT GOALS
 
 • Support Rwanda's mental health strategy
 
-BI Potential and analysis
+## BI Potential and analysis
 
 • Track user engagement patterns
 
@@ -56,7 +57,7 @@ BI Potential and analysis
 
 • Generate usage analytics reports
 
-Core Features Overview
+## Core Features Overview
 
 .Self-assessment tools with instant feedback
 
