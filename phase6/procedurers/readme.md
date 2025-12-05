@@ -4,6 +4,8 @@
 
 # procedurer delete
 
+<img width="955" height="382" alt="procedurer delete" src="https://github.com/user-attachments/assets/60389ca3-4bc1-433a-95ac-79632eea95af" />
+
   
 # out
 <img width="748" height="406" alt="image" src="https://github.com/user-attachments/assets/aa8a69c0-6a90-476f-86f9-27ff2d0bd27b" />
