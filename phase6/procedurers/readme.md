@@ -6,6 +6,9 @@
 
 <img width="955" height="382" alt="procedurer delete" src="https://github.com/user-attachments/assets/60389ca3-4bc1-433a-95ac-79632eea95af" />
 
-  
-# out
+# procedurer add
+
+<img width="1260" height="806" alt="image" src="https://github.com/user-attachments/assets/6037c40a-9068-4e1f-b00b-d6961d282334" />
+
+ # out
 <img width="748" height="406" alt="image" src="https://github.com/user-attachments/assets/aa8a69c0-6a90-476f-86f9-27ff2d0bd27b" />
