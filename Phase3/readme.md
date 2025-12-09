@@ -1,7 +1,9 @@
 ### PHASE III: LOGICAL MODEL DESIGN
+
 ##  Mental Health Support App - Rwanda Context
 
 ## ENTITY-RELATIONSHIP MODEL:
+
 # Core Entities with Attributes:
  
 # 1.user
