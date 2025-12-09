@@ -6,42 +6,47 @@
  
 # 1.user
 
-user_id (NUMBER(10), PK)
+(user_id NUMBER(10) PK,
 
-full_name (VARCHAR2(100), NOT NULL)
+full_name VARCHAR2(100) NOT NULL,
 
-email (VARCHAR2(100), UNIQUE, NOT NULL)
+email VARCHAR2(100), UNIQUE NOT NULL,
 
-password_hash (VARCHAR2(255), NOT NULL)
+password_hash VARCHAR2(255) NOT NULL,
 
-phone_number (VARCHAR2(20))
+phone_number VARCHAR2(20),
 
-date_of_birth (DATE)
+date_of_birth DATE,
 
-gender (VARCHAR2(20))
+gender (VARCHAR2(20)CHECK (gender IN ('M','F','OTHER')),
 
-status (VARCHAR2(20))
+status VARCHAR2(20) CHECK (status IN ('ACTIVE','DISABLED','DELETED')),
 
-language_preference (VARCHAR2(20))
+language_preference VARCHAR2(20));
 
 # 2.SELF_ASSESSMENTS 
+
 ( assessment_id NUMBER(10) PRIMARY KEY,
 
-user_id NUMBER(10) REFERENCES USERS(user_id),
+user_id NUMBER(10),
 
 assessment_date DATE,
 
 assessment_type VARCHAR2(50),
 
-score NUMBER(5,2));
+score NUMBER(5,2),
 
-# 3.EXERCISES (exercise_id (PK) NUMBER(10),
+user_id (fk) REFERENCES USERS(user_id));
 
-title VARCHAR2(100), NOT NULL
+# 3.EXERCISES 
+
+(exercise_id (PK) NUMBER(10),
+
+title VARCHAR2(100) NOT NULL,
 
 description VARCHAR2(500),
 
-duration_minutes - NUMBER(3), NOT NULL
+duration_minutes - NUMBER(3) NOT NULL,
 
 category - VARCHAR2(50));
 
@@ -49,25 +54,29 @@ category - VARCHAR2(50));
 
 ( progress_id (PK) NUMBER(10),
 
-user_id (FK) NUMBER(10) REFERENCES users(user_id),
-
-exercise_id (FK) NUMBER(10) REFERENCES exercises(exercise_id),
-
+ user_id NUMBER(10) NOT NULL,
+ 
+  exercise_id NUMBER(10) NOT NULL,
+  
 start_time TIMESTAMP,
 
 completion_time TIMESTAMP,
 
-duration_seconds NUMBER(6));
+duration_seconds NUMBER(6),
+
+exercise_id (FK) REFERENCES exercises(exercise_id),
+
+user_id (FK) REFERENCES users(user_id));
 
 # 5.COUNSELORS
 
 (counselor_id (PK) NUMBER(10),
 
-counselor_name VARCHAR2(100), NOT NULL
+counselor_name VARCHAR2(100) NOT NULL,
 
-contact_number VARCHAR2(20),NOT NULL
+contact_number VARCHAR2(20) NOT NULL,
 
-email VARCHAR2(100), UNIQUE NOT NULL
+email VARCHAR2(100) UNIQUE NOT NULL,
 
 specialization VARCHAR2(200),
 
@@ -77,17 +86,21 @@ working_hours - VARCHAR2(100));
 
 # 6.MESSAGES
 
-message_id (PK) NUMBER(10),
+(message_id (PK) NUMBER(10),
 
-user_id (FK) NUMBER(10) REFERENCES users(user_id),
+user_id NUMBER(10),
 
-counselor_id (FK) NUMBER(10) REFERENCES counselors(counselor_id),
+counselor_id  NUMBER(10),
 
-message_text varchar(100));
+message_text varchar(100),
+
+counselor_id (FK) REFERENCES counselors(counselor_id),
+
+user_id (FK) REFERENCES users(user_id));
 
 # 7.RESOURCES
 
-resource_id (PK) NUMBER(10),
+(resource_id (PK) NUMBER(10),
 
 title - VARCHAR2(200),
 
@@ -106,17 +119,20 @@ author - VARCHAR2(100),
 publisher - VARCHAR2(100));
 
 ## 8.APPOINTMENTS
-appointment_id (PK) NUMBER(10),
 
-user_id (FK) - NUMBER(10) REFERENCES users(user_id),
+(appointment_id (PK) NUMBER(10),
 
-counselor_id (FK) - NUMBER(10) REFERENCES counselors(counselor_id),
+user_id NUMBER(10),
 
-appointment_date - DATE,
+counselor_id  NUMBER(10),
 
-appointment_type - VARCHAR2(20));
+appointment_date  DATE,
 
+appointment_type  VARCHAR2(20),
 
+user_id (FK) REFERENCES users(user_id),
+
+counselor_id (FK) REFERENCES counselors(counselor_id));
 
 ## Cardinalities:
 
@@ -146,8 +162,8 @@ EXERCISES (1) ---- (M) USER_EXERCISE_PROGRESS
 | password_hash       | VARCHAR2(255) | Encrypted password                      | NOT NULL         |
 | phone_number        | VARCHAR2(20)  | User’s phone number                     | Optional         |
 | date_of_birth       | DATE          | User’s date of birth                    | Optional         |
-| gender              | VARCHAR2(20)  | Gender description                      | Optional         |
-| status              | VARCHAR2(20)  | Account status (Active, Disabled, etc.) | Optional         |
+| gender              | VARCHAR2(20)  | Gender description                      | check         |
+| status              | VARCHAR2(20)  | Account status (Active, Disabled, etc.) | active         |
 | language_preference | VARCHAR2(20)  | Preferred language                      | Optional         |
 
 
@@ -232,25 +248,24 @@ EXERCISES (1) ---- (M) USER_EXERCISE_PROGRESS
 ### 3. Normalization (1NF → 2NF → 3NF)
 # ✔ 1NF (Eliminate repeating groups)
 
-.Each table has atomic values (no multi-valued attributes).
+.No repeating groups
 
-.No repeated columns.
+.All values are atomic
 
-.All tables have primary keys.
+.Each table has a primary key
 
 # ✔ 2NF (Eliminate partial dependencies)
 
-.No composite primary keys → therefore no partial dependency.
+.No composite primary keys
 
-.All non-key attributes depend fully on the PK.
+.All attributes depend fully on the PK
 
 # ✔ 3NF (Eliminate transitive dependencies)
 
-.No field depends on another non-key attribute.
+.No transitive dependencies
 
-.Contact numbers, status, category etc. all depend only on their PK.
+.All non-key attributes depend only on PK
 
-.Relationships handled with foreign keys.
   ## Justification of Normalization Approach
  1. Reduces data redundancy: Information is stored only once, e.g., user data in USERS table.
  2. Ensures data integrity: Foreign keys maintain consistent relationships.
@@ -272,8 +287,8 @@ EXERCISES (1) ---- (M) USER_EXERCISE_PROGRESS
 .Password is stored encrypted in real implement
 
   | Aspect                     | Consideration                                                                                                                  |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| -------------------------- | ----------------,-------------------------------------------------------------------------------------------------------------- |
 | Fact vs Dimension Tables   | Fact: SELF_ASSESSMENTS, USER_EXERCISE_PROGRESS, APPOINTMENTS, MESSAGES <br> Dimension: USERS, COUNSELORS, EXERCISES, RESOURCES |
 | Slowly Changing Dimensions | USERS, COUNSELORS profiles tracked via Type 2 SCD to maintain historical changes                                               |
-| Aggregation Levels         | Daily, weekly, monthly user activity for reporting and analytics                                                               |
+| Aggregation Levels         | Daily, weekly, monthly user activity for reporting and analytics,counselors,exercises add:surrogate key (user_dim_id),start_date                                                                                      end_date,is_current CHAR(1)
 | Audit Trails               | Include created_at and updated_at timestamps for all tables                                                                    |
