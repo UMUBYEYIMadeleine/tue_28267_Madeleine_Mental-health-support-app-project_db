@@ -1,19 +1,21 @@
 # validated integrity
-
-<img width="807" height="861" alt="validate table first" src="https://github.com/user-attachments/assets/8a5ae9e7-38cf-4b77-8262-8880e758b1c3" />
-
-<img width="842" height="947" alt="validate table second" src="https://github.com/user-attachments/assets/4f7b10c9-a03c-4dc9-a620-2ba8a46a8073" />
-
-<img width="1048" height="958" alt="validate table 3" src="https://github.com/user-attachments/assets/65d929ac-b3b9-4b89-92d3-f01916464a3c" />
-
-<img width="1185" height="977" alt="validate table 4" src="https://github.com/user-attachments/assets/129c8f2d-a3d9-461f-b4ff-f4d8fdc0db60" />
-
-<img width="881" height="912" alt="validate table 5" src="https://github.com/user-attachments/assets/dd5a6ae1-6ad2-48ed-b502-59d462086b39" />
-
-<img width="762" height="406" alt="validate table 6" src="https://github.com/user-attachments/assets/4d1d8253-8b21-41fc-9086-88a6da3185a0" />
+# select query verify data
+<img width="522" height="196" alt="image" src="https://github.com/user-attachments/assets/e24086a4-5ccf-4457-b4fe-554a6c8da3a6" />
+<img width="517" height="125" alt="image" src="https://github.com/user-attachments/assets/1d814322-4e1d-44ef-a9eb-c8f07eadbec6" />
+# constraint enforced proparly
+# Check that NOT NULL, UNIQUE, and CHECK constraints are working
+<img width="597" height="291" alt="image" src="https://github.com/user-attachments/assets/82b6f457-ddb1-4c80-b38e-7041c6ce15fa" />
+<img width="705" height="283" alt="image" src="https://github.com/user-attachments/assets/bc8ea1f4-3f15-4b27-89d2-b16a86d7546e" />
 
 
+# test foreign key relationship
+<img width="676" height="415" alt="image" src="https://github.com/user-attachments/assets/c27fff52-fe94-4d96-8361-8e9774b898dc" />
+<img width="716" height="403" alt="image" src="https://github.com/user-attachments/assets/dc3ee151-34b0-4c3d-8c2a-8aa69b6758dd" />
+#  check data completeness
+<img width="1302" height="492" alt="image" src="https://github.com/user-attachments/assets/c5f01ca5-3b80-428c-a6f4-e7671bffcbd2" />
+<img width="1267" height="511" alt="image" src="https://github.com/user-attachments/assets/482e3e58-926a-4c71-94ae-a735c4a21ae4" />
 
-
-
+# validate table
+<img width="878" height="430" alt="image" src="https://github.com/user-attachments/assets/b7748d14-3334-4543-a114-a0bcd10c1c6c" />
+<img width="1172" height="561" alt="image" src="https://github.com/user-attachments/assets/c91825fd-8356-4024-b129-95b6222085fd" />
 
