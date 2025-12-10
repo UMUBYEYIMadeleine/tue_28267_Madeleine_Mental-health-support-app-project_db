@@ -17,5 +17,5 @@
 
 # validate table
 <img width="878" height="430" alt="image" src="https://github.com/user-attachments/assets/b7748d14-3334-4543-a114-a0bcd10c1c6c" />
-<img width="1172" height="561" alt="image" src="https://github.com/user-attachments/assets/c91825fd-8356-4024-b129-95b6222085fd" />
+
 
