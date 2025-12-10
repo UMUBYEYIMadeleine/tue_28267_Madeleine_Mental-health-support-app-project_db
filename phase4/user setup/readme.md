@@ -4,6 +4,7 @@
 
 
 
-<img width="1187" height="350" alt="connect user1" src="https://github.com/user-attachments/assets/0ac7015f-6ae7-4e7e-a18d-ab1f6138e954" />
+<img width="1286" height="367" alt="image" src="https://github.com/user-attachments/assets/b6352d71-c045-4f7e-92b1-6597b421a5da" />
+
 
 
