@@ -1,34 +1,49 @@
-# validated integrity
+# 1.Verify data with SELECT queries
 
-# select query verify data
+SELECT COUNT(*) AS total_users FROM USERS;
 
-<img width="522" height="196" alt="image" src="https://github.com/user-attachments/assets/e24086a4-5ccf-4457-b4fe-554a6c8da3a6" />
+SELECT * FROM USERS WHERE ROWNUM <= 10;
 
-<img width="517" height="125" alt="image" src="https://github.com/user-attachments/assets/1d814322-4e1d-44ef-a9eb-c8f07eadbec6" />
+SELECT title, duration_minutes FROM EXERCISES;
 
-# constraint enforced proparly
+# 2.constraint enforced
 
-# Check that NOT NULL, UNIQUE, and CHECK constraints are working
+check if not null,unique,ckeck is working
 
-<img width="597" height="291" alt="image" src="https://github.com/user-attachments/assets/82b6f457-ddb1-4c80-b38e-7041c6ce15fa" />
+SELECT * FROM USERS WHERE gender NOT IN ('M','F','OTHER');
 
-<img width="705" height="283" alt="image" src="https://github.com/user-attachments/assets/bc8ea1f4-3f15-4b27-89d2-b16a86d7546e" />
+SELECT email, COUNT(*) FROM USERS GROUP BY email HAVING COUNT(*) > 1;
+
+SELECT * FROM USERS WHERE status NOT IN ('ACTIVE','DISABLED','DELETED');
+   
+
+# 3.test foreign key relationship
+
+SELECT a.appointment_id, u.full_name AS user_name, c.counselor_name
+FROM APPOINTMENTS a
+JOIN USERS u ON a.user_id = u.user_id
+JOIN COUNSELORS c ON a.counselor_id = c.counselor_id;
+
+SELECT sa.assessment_id
+FROM SELF_ASSESSMENTS sa
+LEFT JOIN USERS u ON sa.user_id = u.user_id WHERE u.user_id IS not NULL;
+
+# 4.data completeness
+
+SELECT * FROM USERS WHERE full_name IS NULL OR email IS NULL OR password_hash IS NULL;
+
+SELECT * FROM EXERCISES WHERE title IS NULL OR duration_minutes IS NULL;
+
+# 5.validate
+
+SELECT u.user_id, u.full_name
+FROM USERS u
+LEFT JOIN USER_EXERCISE_PROGRESS p ON u.user_id = p.user_id
+WHERE p.exercise_id IS not NULL;
 
 
-# test foreign key relationship
+SELECT * FROM SELF_ASSESSMENTS
+WHERE user_id NOT IN (SELECT user_id FROM USERS);
 
-<img width="676" height="415" alt="image" src="https://github.com/user-attachments/assets/c27fff52-fe94-4d96-8361-8e9774b898dc" />
-
-<img width="716" height="403" alt="image" src="https://github.com/user-attachments/assets/dc3ee151-34b0-4c3d-8c2a-8aa69b6758dd" />
-
-#  check data completeness
-
-<img width="1302" height="492" alt="image" src="https://github.com/user-attachments/assets/c5f01ca5-3b80-428c-a6f4-e7671bffcbd2" />
-
-<img width="1267" height="511" alt="image" src="https://github.com/user-attachments/assets/482e3e58-926a-4c71-94ae-a735c4a21ae4" />
-
-# validate table
-
-<img width="878" height="430" alt="image" src="https://github.com/user-attachments/assets/b7748d14-3334-4543-a114-a0bcd10c1c6c" />
 
 
