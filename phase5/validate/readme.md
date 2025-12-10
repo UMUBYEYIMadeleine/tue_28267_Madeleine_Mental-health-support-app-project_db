@@ -30,9 +30,9 @@ LEFT JOIN USERS u ON sa.user_id = u.user_id WHERE u.user_id IS not NULL;
 
 # 4.data completeness
 
-SELECT * FROM USERS WHERE full_name IS NULL OR email IS NULL OR password_hash IS NULL;
+SELECT * FROM USERS WHERE full_name IS not NULL OR email IS not NULL OR password_hash IS not NULL;
 
-SELECT * FROM EXERCISES WHERE title IS NULL OR duration_minutes IS NULL;
+SELECT * FROM EXERCISES WHERE title IS not NULL OR duration_minutes IS not NULL;
 
 # 5.validate
 
