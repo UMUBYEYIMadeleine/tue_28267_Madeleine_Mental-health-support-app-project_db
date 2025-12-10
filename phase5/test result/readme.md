@@ -12,3 +12,7 @@
 # aggregate
 
 <img width="763" height="362" alt="image" src="https://github.com/user-attachments/assets/2fdea50e-f178-48ce-9295-a39b4cd5e0cf" />
+
+# subquery
+
+<img width="662" height="326" alt="image" src="https://github.com/user-attachments/assets/a8ad5f6d-2368-43ff-98e9-4a5af77e8251" />
