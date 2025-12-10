@@ -17,3 +17,13 @@ JOIN EXERCISES e ON p.exercise_id = e.exercise_id;
 SELECT assessment_type, AVG(score) AS avg_score
 FROM SELF_ASSESSMENTS
 GROUP BY assessment_type;
+
+# subquery
+
+SELECT full_name
+FROM USERS
+WHERE user_id IN (
+    SELECT user_id
+    FROM SELF_ASSESSMENTS
+    WHERE score > 80
+);
