@@ -1,38 +1,31 @@
-# insert into table
+# appointments table inserted
 
-#  user inserted
+<img width="833" height="295" alt="image" src="https://github.com/user-attachments/assets/6cf16282-9c7a-4206-aad8-3d78419325c5" />
 
-<img width="682" height="872" alt="insert in user" src="https://github.com/user-attachments/assets/64c87804-e077-417c-951f-9a880e8278d2" />
+# counselors table inserted
 
- #  cancelor inserted
+<img width="1397" height="272" alt="image" src="https://github.com/user-attachments/assets/3bb7c703-a06d-4272-a1c4-bf7a6c71afe7" />
 
- <img width="971" height="878" alt="insert into cancelor edited" src="https://github.com/user-attachments/assets/952278c4-905c-4160-8d45-6c5e8d6d7465" />
+# exercises table inserted
 
- # resources inserted
+<img width="981" height="301" alt="image" src="https://github.com/user-attachments/assets/8627fbe1-34b6-4eeb-ac5f-1cc94fab2821" />
 
- <img width="1096" height="841" alt="insert into resources" src="https://github.com/user-attachments/assets/26c33b9f-7f1b-4c0a-9a6b-11bde4fa63d6" />
+# messages table inserted
 
-  # i=message inserted
+<img width="706" height="228" alt="image" src="https://github.com/user-attachments/assets/14024569-6838-4ba2-9e97-d5cd7935763f" />
 
-  <img width="1001" height="745" alt="insert message" src="https://github.com/user-attachments/assets/0a38f623-8540-40d8-a1c6-c6f9a3633d40" />
+# resources table inserted
 
-# self_assessment inserted
+<img width="1528" height="290" alt="image" src="https://github.com/user-attachments/assets/16e4df31-7912-4f15-865b-0417f244911a" />
 
-<img width="847" height="631" alt="self assessment" src="https://github.com/user-attachments/assets/267a8666-16c0-4c02-813b-f270d7320070" />
+# self_assessment table inserted
 
-# user_exercises_progress inserted
+<img width="683" height="253" alt="image" src="https://github.com/user-attachments/assets/542a590b-8a8f-47b7-bc63-491cbedb30ec" />
 
-<img width="1187" height="780" alt="exercises pregress" src="https://github.com/user-attachments/assets/9d4e2cd3-a69a-4bda-8d67-44937d6279f2" />
+# user_exercise_progress table inserted
 
-# appointment inserted
+<img width="1148" height="267" alt="image" src="https://github.com/user-attachments/assets/aa0dac7a-3747-4318-9f72-e0c4814a03a6" />
 
-<img width="992" height="772" alt="insert appointment" src="https://github.com/user-attachments/assets/9679c36d-c5fc-40f9-91d4-e718a1c2a2a9" />
+# users table inserted
 
-# exercises inserted
-
-<img width="1021" height="730" alt="insert in exercises" src="https://github.com/user-attachments/assets/e02892fd-8060-4f14-9697-71972176ffce" />
-
-
-
-
-
+<img width="1198" height="270" alt="image" src="https://github.com/user-attachments/assets/3f737d78-595a-4474-934e-77d3a131e6f6" />
