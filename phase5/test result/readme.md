@@ -21,6 +21,12 @@
 
 <img width="716" height="403" alt="image" src="https://github.com/user-attachments/assets/dc3ee151-34b0-4c3d-8c2a-8aa69b6758dd" />
 
+# validate table
+
+<img width="878" height="430" alt="image" src="https://github.com/user-attachments/assets/b7748d14-3334-4543-a114-a0bcd10c1c6c" />
+
+
+
 #  check data completeness
 
 <img width="1302" height="492" alt="image" src="https://github.com/user-attachments/assets/c5f01ca5-3b80-428c-a6f4-e7671bffcbd2" />
