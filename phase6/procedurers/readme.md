@@ -113,9 +113,36 @@ END update_user_status;
 
 <img width="726" height="752" alt="image" src="https://github.com/user-attachments/assets/96ccc88c-8514-4bb8-94d2-d9977c2464e0" />
 
-# procedurer add
+# procedurer delete
 
-<img width="1260" height="806" alt="image" src="https://github.com/user-attachments/assets/6037c40a-9068-4e1f-b00b-d6961d282334" />
+CREATE OR REPLACE PROCEDURE delete_assessment (
 
- # out
-<img width="748" height="406" alt="image" src="https://github.com/user-attachments/assets/aa8a69c0-6a90-476f-86f9-27ff2d0bd27b" />
+    p_assessment_id IN SELF_ASSESSMENTS.assessment_id%TYPE
+)
+IS
+
+BEGIN
+
+    DELETE FROM SELF_ASSESSMENTS WHERE assessment_id = p_assessment_id;
+
+    IF SQL%ROWCOUNT = 0 THEN
+    
+        RAISE_APPLICATION_ERROR(-20020, 'Assessment not found: '||p_assessment_id);
+        
+    END IF;
+
+    COMMIT;
+
+EXCEPTION
+
+    WHEN OTHERS THEN
+    
+        ROLLBACK;
+        
+        RAISE;
+        
+END delete_assessment;
+/
+
+<img width="861" height="666" alt="image" src="https://github.com/user-attachments/assets/c52c26ea-dc97-4237-8e0b-c46c78c4e5bd" />
+
