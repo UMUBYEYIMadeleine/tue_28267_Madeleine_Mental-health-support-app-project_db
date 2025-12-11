@@ -65,7 +65,53 @@ END add_user;
 
 # procedurer update
 
+CREATE OR REPLACE PROCEDURE update_user_status (
 
+    p_user_id    IN  USERS.user_id%TYPE,
+    
+    p_new_status IN  USERS.status%TYPE,
+    
+    p_old_status OUT USERS.status%TYPE
+)
+
+IS
+
+BEGIN
+
+    SELECT status INTO p_old_status
+    
+    FROM USERS
+    
+    WHERE user_id = p_user_id
+    
+    FOR UPDATE;
+
+    UPDATE USERS
+    
+    SET status = p_new_status
+    
+    WHERE user_id = p_user_id;
+
+    COMMIT;
+
+EXCEPTION
+
+    WHEN NO_DATA_FOUND THEN
+    
+        ROLLBACK;
+        
+        RAISE_APPLICATION_ERROR(-20002, 'User not found: ' || p_user_id);
+        
+    WHEN OTHERS THEN
+    
+        ROLLBACK;
+        
+        RAISE;
+        
+END update_user_status;
+/
+
+<img width="726" height="752" alt="image" src="https://github.com/user-attachments/assets/96ccc88c-8514-4bb8-94d2-d9977c2464e0" />
 
 # procedurer add
 
