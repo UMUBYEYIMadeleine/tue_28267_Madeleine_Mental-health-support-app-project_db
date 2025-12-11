@@ -23,12 +23,10 @@ CREATE OR REPLACE PROCEDURE add_user (
     )IS
     
 BEGIN
-
  SELECT NVL(MAX(user_id),0)+1 INTO p_new_id FROM USERS;
  
  INSERT INTO USERS (
- 
-        user_id, full_name, email, password_hash, phone_number,
+   user_id, full_name, email, password_hash, phone_number,
         
         date_of_birth, gender, status, language_preference
     ) VALUES (
