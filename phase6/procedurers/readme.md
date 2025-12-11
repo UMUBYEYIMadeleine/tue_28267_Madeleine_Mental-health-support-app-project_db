@@ -146,3 +146,59 @@ END delete_assessment;
 
 <img width="861" height="666" alt="image" src="https://github.com/user-attachments/assets/c52c26ea-dc97-4237-8e0b-c46c78c4e5bd" />
 
+# procedurer insert
+
+CREATE OR REPLACE PROCEDURE bulk_insert_resources (
+
+    p_titles       IN SYS.ODCIVARCHAR2LIST,
+    
+    p_descriptions IN SYS.ODCIVARCHAR2LIST,
+    
+    p_categories   IN SYS.ODCIVARCHAR2LIST
+)
+IS
+    TYPE t_num_tab IS TABLE OF NUMBER;
+    
+    v_ids t_num_tab := t_num_tab();
+    
+    v_count PLS_INTEGER;
+    
+BEGIN
+
+    IF p_titles.COUNT != p_descriptions.COUNT OR p_titles.COUNT != p_categories.COUNT THEN
+    
+        RAISE_APPLICATION_ERROR(-20010, 'Collections must be same size');
+        
+    END IF;
+
+    v_count := p_titles.COUNT;
+    
+    v_ids.EXTEND(v_count);
+
+    FOR i IN 1..v_count LOOP
+    
+        SELECT NVL(MAX(resource_id),0)+1 INTO v_ids(i) FROM RESOURCES;
+        
+    END LOOP;
+
+    FORALL i IN 1..v_count
+    
+        INSERT INTO RESOURCES(resource_id, title, description, category)
+        
+        VALUES(v_ids(i), p_titles(i), p_descriptions(i), p_categories(i));
+
+    COMMIT;
+
+EXCEPTION
+
+    WHEN OTHERS THEN
+    
+        ROLLBACK;
+        
+        RAISE;
+        
+END bulk_insert_resources;
+/
+
+<img width="1011" height="810" alt="image" src="https://github.com/user-attachments/assets/17fd5c5d-ae59-4ae6-b870-539b10bb2f45" />
+
