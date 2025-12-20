@@ -1,15 +1,81 @@
-# window function row_num(),rank()
+# row num()
 
-<img width="947" height="377" alt="image" src="https://github.com/user-attachments/assets/9628a932-d7ea-4097-ab25-bedf08f55088" />
+SELECT *
 
-# LAG(),LEAD(),PARTITION BY,ORDER BY
+FROM (
 
-<img width="1237" height="931" alt="image" src="https://github.com/user-attachments/assets/7305a945-8080-4fdf-a8b3-bb4bc6d99b38" />
+    SELECT 
+    
+        sa.assessment_id,
+        
+        sa.user_id,
+        
+        sa.assessment_date,
+        
+        sa.score,
+        
+        ROW_NUMBER() OVER(PARTITION BY sa.user_id ORDER BY sa.assessment_date DESC) AS rn
+        
+    FROM SELF_ASSESSMENTS sa
+) 
 
-<img width="997" height="955" alt="image" src="https://github.com/user-attachments/assets/c57e4b75-5398-48ee-976b-42955cbee751" />
+WHERE rn = 1;
 
-<img width="892" height="966" alt="image" src="https://github.com/user-attachments/assets/780be4f1-4304-43e5-8569-d2d948fbd005" />
+<img width="928" height="650" alt="image" src="https://github.com/user-attachments/assets/0bbf3db1-ad5f-486a-a76b-4cbba7260a4d" />
 
-<img width="938" height="927" alt="image" src="https://github.com/user-attachments/assets/a698ff7a-8ed1-43ba-a734-18743b775873" />
+# rank and danse
 
+SELECT 
+
+    u.user_id,
+    
+    u.full_name,
+    
+    SUM(uep.duration_seconds) AS total_duration,
+    
+    RANK() OVER(ORDER BY SUM(uep.duration_seconds) DESC) AS rank_r,
+    
+    DENSE_RANK() OVER(ORDER BY SUM(uep.duration_seconds) DESC) AS dense_rank_r
+    
+FROM USER_EXERCISE_PROGRESS uep
+
+JOIN USERS u ON u.user_id = uep.user_id
+
+GROUP BY u.user_id, u.full_name;
+
+<img width="767" height="667" alt="image" src="https://github.com/user-attachments/assets/988aadbd-ad43-4c9c-8784-a11b851e4b08" />
+
+# lag and lead
+
+SELECT 
+
+    sa.user_id,
+    
+    sa.assessment_date,
+    
+    sa.score,
+    
+    LAG(sa.score) OVER(PARTITION BY sa.user_id ORDER BY sa.assessment_date) AS prev_score,
+    
+    LEAD(sa.score) OVER(PARTITION BY sa.user_id ORDER BY sa.assessment_date) AS next_score
+    
+FROM SELF_ASSESSMENTS sa;
+
+<img width="935" height="616" alt="image" src="https://github.com/user-attachments/assets/ad54cda7-7ede-4127-bf72-e438b428354c" />
+
+# aggregation
+
+SELECT 
+
+    sa.user_id,
+    
+    sa.assessment_date,
+    
+    sa.score,
+    
+    AVG(sa.score) OVER(PARTITION BY sa.user_id) AS avg_score
+    
+FROM SELF_ASSESSMENTS sa;
+
+<img width="757" height="628" alt="image" src="https://github.com/user-attachments/assets/96ac0d4d-e531-4dbf-8f04-e1b2a38b26a9" />
 
