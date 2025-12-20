@@ -1,20 +1,55 @@
-# calculate function Average Assessment Score
+# calculation function
 
-<img width="857" height="362" alt="image" src="https://github.com/user-attachments/assets/8dfa8200-dc63-47a2-a07e-b540be49a1f0" />
+CREATE OR REPLACE FUNCTION calculate_average(
+    p_total_score NUMBER,
+    p_total_questions NUMBER
+) RETURN NUMBER IS
+BEGIN
+    RETURN p_total_score / p_total_questions;
+END;
+/
 
-# validate function Email Format
+<img width="788" height="585" alt="funct calcu" src="https://github.com/user-attachments/assets/5b34b7b5-a565-4836-b524-39ebfad53eb1" />
 
-<img width="1162" height="332" alt="function validated" src="https://github.com/user-attachments/assets/816e335e-00ea-4759-8b0a-b2199db26522" />
 
-# Function: Get Total Messages for User
+# validate function
 
-<img width="1031" height="332" alt="image" src="https://github.com/user-attachments/assets/fa433586-cce5-44d5-a1f8-2a2b271d7073" />
+CREATE OR REPLACE FUNCTION validate_age(
+    p_age NUMBER
+) RETURN BOOLEAN IS
+BEGIN
+    IF p_age >= 18 THEN
+        RETURN TRUE;
+    ELSE
+        RETURN FALSE;
+    END IF;
+END;
+/
 
-# Function: Check If User Exists
+<img width="710" height="598" alt="funct validate" src="https://github.com/user-attachments/assets/26a419f7-ca8d-4914-a4c0-2dc8556a6e73" />
 
-<img width="910" height="343" alt="image" src="https://github.com/user-attachments/assets/2f281cde-ac73-4a4c-bea6-d486627ae6d9" />
 
-# Function: Calculate Total Appointment Days Ahead
+# lookup functions
 
-<img width="812" height="395" alt="image" src="https://github.com/user-attachments/assets/37938e2d-198a-4770-84ba-5a6445ef03d4" />
+CREATE OR REPLACE FUNCTION get_user_name(
+    p_user_id NUMBER
+) RETURN VARCHAR2 IS
+    v_name VARCHAR2(100);
+BEGIN
+    SELECT full_name
+    INTO v_name
+    FROM users
+    WHERE user_id = p_user_id;
+
+    RETURN v_name;
+END;
+/
+
+<img width="845" height="605" alt="lookup function" src="https://github.com/user-attachments/assets/25d889e4-0943-4dca-a787-375b93354bad" />
+
+| Function Type | Return Type          | Reason                    |
+| ------------- | -------------------- | ------------------------- |
+| Calculation   | `NUMBER`             | Returns numerical results |
+| Validation    | `BOOLEAN`            | Returns TRUE or FALSE     |
+| Lookup        | `VARCHAR2`, `NUMBER` | Returns table values      |
 
